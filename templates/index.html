@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>SmartAnalyze</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-top: 50px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Permet aux éléments de s'ajuster sur plusieurs lignes si nécessaire */
+        }
+
+        li {
+            margin: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1.2em;
+            color: white;
+            background-color: #007BFF;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            position: fixed;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            p {
+                font-size: 1em;
+            }
+
+            a {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            p {
+                font-size: 0.9em;
+            }
+
+            a {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+
+            ul {
+                flex-direction: column; /* Empile les éléments du menu sur les petits écrans */
+                align-items: center;
+            }
+
+            li {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenue sur SmartAnalyze</h1>
+    <p>Choisissez une fonctionnalité :</p>
+    <ul>
+        <li><a href="/text-analysis">Analyse de texte</a></li>
+        <li><a href="/image-analysis">Analyse d'Images</a></li>
+    </ul>
+
+    <footer>
+        <p>&copy; 2024 SmartAnalyze. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

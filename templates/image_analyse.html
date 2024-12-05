@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Analyse d'Images</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-top: 50px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            max-width: 500px;
+            width: 100%;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        input[type="file"] {
+            display: block;
+            margin: 20px 0;
+            padding: 10px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        button[type="submit"], button[type="button"] {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        button[type="submit"]:hover, button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #333;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        li {
+            margin: 10px 0;
+            color: #555;
+        }
+
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            color: red;
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 0.9em;
+            position: relative;
+            bottom: 0;
+            display: none;
+        }
+
+        footer.visible {
+            display: block;
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 1000px;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            form {
+                max-width: 100%;
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            .content {
+                max-width: 95%;
+                padding: 10px;
+            }
+
+            img {
+                max-width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            .content {
+                max-width: 100%;
+                padding: 5px;
+            }
+
+            img {
+                max-width: 90%;
+            }
+
+            button[type="submit"], button[type="button"] {
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content">
+        <h1>Analyse d'Images</h1>
+
+        <form action="/image-analysis" method="post" enctype="multipart/form-data">
+            <label for="image">Choisissez une image :</label>
+            <input type="file" name="image" id="image" accept="image/*" required>
+            <button type="submit">Analyser</button>
+        </form>
+
+        <br>
+        <button type="button" onclick="window.location.href='/'">Quitter</button>
+
+        {% if error_message %}
+            <div class="error-message">
+                <h2>Erreur :</h2>
+                <p>{{ error_message }}</p>
+            </div>
+        {% endif %}
+
+        {% if uploaded_image_url %}
+            <h2>Image Uploadée</h2>
+            <img src="{{ uploaded_image_url }}" alt="Image uploadée">
+        {% endif %}
+
+        {% if descriptions %}
+            <h2>Descriptions Générées</h2>
+            <ul>
+                {% for description in descriptions %}
+                    <li>{{ description }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if objects %}
+            <h2>Objets Détectés</h2>
+            <ul>
+                {% for obj, confidence in objects %}
+                    <li>{{ obj }} (Confiance : {{ (confidence * 100) | round(2) }}%)</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        {% if ocr_text %}
+            <h2>Texte Extrait</h2>
+            <p>{{ ocr_text }}</p>
+        {% endif %}
+    </div>
+
+    <footer id="footer">
+        <p>&copy; 2024 SmartAnalyze. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <title>Analyse de texte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            padding-bottom: 60px; /* Pour que le footer n'interfère pas avec le contenu */
+        }
+
+        h1 {
+            color: #007BFF;
+            margin-top: 50px;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+            max-width: 600px;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            margin-top: 10px;
+        }
+
+        input[type="submit"], button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover, button:hover {
+            background-color: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007BFF;
+            color: white;
+        }
+
+        h2 {
+            margin-top: 30px;
+            color: #333;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            font-size: 0.9em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            text-align: center;
+            display: none; /* Initialement masqué */
+        }
+
+        footer.visible {
+            display: block; /* Afficher le footer quand la classe visible est ajoutée */
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            form {
+                padding: 20px;
+                max-width: 90%;
+            }
+
+            textarea {
+                font-size: 1em;
+            }
+
+            input[type="submit"], button {
+                font-size: 1em;
+                padding: 8px 16px;
+            }
+
+            table th, table td {
+                font-size: 0.9em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.3em;
+            }
+
+            form {
+                padding: 15px;
+                max-width: 95%;
+            }
+
+            input[type="submit"], button {
+                padding: 8px 16px;
+                font-size: 0.9em;
+            }
+
+            table th, table td {
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Analyse de texte</h1>
+    <form method="post">
+        <textarea name="avis" rows="5" placeholder="Entrez votre texte ici..."></textarea><br><br>
+        <input type="submit" value="Analyser">
+    </form>
+
+    <br>
+    <button onclick="window.location.href='/'">Quitter</button>
+
+    <h2>Historique des avis</h2>
+    {% if historique %}
+    <table>
+        <thead>
+            <tr>
+                <th>Avis</th>
+                <th>Langue</th>
+                <th>Sentiment</th>
+                <th>Score</th>
+                <th>Phrases clés</th>
+                <th>Entités nommées</th>
+                <th>Résumé</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in historique %}
+            <tr>
+                <td>{{ item.avis }}</td>
+                <td>{{ item.language }}</td>
+                <td>{{ item.sentiment }}</td>
+                <td>{{ item.score }}%</td>
+                <td>
+                    <ul>
+                        {% for phrase in item.key_phrases %}
+                        <li>{{ phrase }}</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        {% for entity, category in item.entities %}
+                        <li>{{ entity }} ({{ category }})</li>
+                        {% endfor %}
+                    </ul>
+                </td>
+                <td>{{ item.summary }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Aucun avis soumis pour le moment.</p>
+    {% endif %}
+
+    <footer>
+        <p>&copy; 2024 SmartAnalyze. Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
