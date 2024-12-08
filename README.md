@@ -20,13 +20,14 @@ Prérequis :
 
 ### Étapes pour lancer l'application :
 
-1. Cloner le dépôt :
+1. Cloner le dépôt et créer un dossier uploads :
 
 ```bash
 git clone https://github.com/HubSeaLon/projet_cloud.git
 cd projet_cloud
+mkdir uploads
 ```
-Créer un dossier uploads 
+
 
 2. Créer un environnement virtuel et l'activer :
 
