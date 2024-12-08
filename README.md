@@ -41,10 +41,12 @@ pip install -r requirements.txt
 
 4. Configurer les variables d'environnement :
 - Créer un fichier .env dans le répertoire principal avec les informations suivantes :
+``` .env
 TEXT_ANALYTICS_KEY=<votre_clé>
 TEXT_ANALYTICS_ENDPOINT=<votre_endpoint>
 VISION_KEY=<votre_clé>
 VISION_ENDPOINT=<votre_endpoint>
+```
 
 5. Construire et lancer l'image Docker :
 
