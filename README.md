@@ -52,7 +52,7 @@ VISION_ENDPOINT=<votre_endpoint>
 
 ```bash
 docker build -t smartanalyze .
-docker run -p 5000:5000 smartanalyze
+docker run -p 5000:80 smartanalyze
 ```
 Ouvrez votre navigateur et accédez à : http://localhost:5000
 
