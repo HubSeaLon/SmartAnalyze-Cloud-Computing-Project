@@ -1,6 +1,6 @@
 ### Projet Cloud 
 
-SmartAnalyze est une application web utilisant Flask et des services Azure (Text Analytics et Computer Vision) pour analyser des textes et des images. Elle permet :
+[SmartAnalyze](https://smartanalyze-fmdcgrf9dwdzfver.francecentral-01.azurewebsites.net/) est une application web utilisant Flask et des services Azure (Text Analytics et Computer Vision) pour analyser des textes et des images. Elle permet :
 - D'obtenir des informations détaillées sur des textes (langue, sentiment, mots-clés, entités, résumé).
 - D'extraire du texte, de détecter des objets et de générer une description à partir d'images.
 
