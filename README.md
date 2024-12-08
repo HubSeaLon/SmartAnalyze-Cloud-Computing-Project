@@ -12,7 +12,7 @@ Liste des outils et technologies employés :
 - Azure Cognitive Services (Text Analytics et Computer Vision)
 
 Prérequis :
-- Python 3.8 ou supérieur
+- Python 3.9 ou supérieur
 - Docker
 - Compte Azure avec :
   - Un registre de conteneurs (Container Registry)
