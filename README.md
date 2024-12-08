@@ -23,7 +23,7 @@ Prérequis :
 1. Cloner le dépôt et créer un dossier uploads :
 
 ```bash
-git clone https://github.com/HubSeaLon/projet_cloud.git
+git clone https://github.com/HubSeaLon/SmartAnalyze-Cloud-Computing-Project.git
 cd projet_cloud
 mkdir uploads
 ```
