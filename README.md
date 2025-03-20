@@ -77,5 +77,13 @@ Configurer Azure Web App :
 
 Dans le portail Azure, créez une Web App et configurez-la pour utiliser l'image Docker poussée dans votre Container Registry. Et autoriser les droits de l'App Web pour le container (AcrPull) 
 
+7. Quelque images de l'application
+![Capture d'écran 2024-12-07 175109](https://github.com/user-attachments/assets/3d8e1a61-8766-4400-b8b9-39e50911d142)
+![Capture d'écran 2024-12-07 175350](https://github.com/user-attachments/assets/6e940d19-86c4-44d1-b279-08444e188c7e)
+![Capture d'écran 2024-12-07 175350](https://github.com/user-attachments/assets/60f90fd9-7972-4e27-879a-7934f6789f30)
+![Capture d'écran 2024-12-07 180216](https://github.com/user-attachments/assets/2f502107-df11-4f0f-9c3c-983c32b5a529)
+![Capture d'écran 2024-12-07 180448](https://github.com/user-attachments/assets/73d70589-3f6f-44c5-b311-93cd74bd49fa)
+![Capture d'écran 2024-12-07 180848](https://github.com/user-attachments/assets/927a9337-79bd-4f60-9be3-7f31c1473d72)
+![Capture d'écran 2024-12-07 180904](https://github.com/user-attachments/assets/3abca1a3-bbe6-47e0-b566-a8bd76ad69ae)
 
 
